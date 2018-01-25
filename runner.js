@@ -4,11 +4,11 @@ var fs = require('fs');
 
 fs.readFile('./countries.json', 'utf8', function(err, data){
   var ourJason = JSON.parse(data);
-  var ourCountry;
+  var ourData;
   for(var index in ourJason) {
     if(ourJason[index].name === process.argv[2]) {
-      ourCountry = ourJason[index].name;
+      ourData = ourJason[index].name + ourJason[index].topLevelDomain;
     }
   };
-  console.log(ourCountry);
+  console.log(ourData);
 });
